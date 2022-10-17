@@ -24,8 +24,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VER}-Lin
 # Put conda in path
 ENV PATH=${CONDA_DIR}/bin:${PATH}
 COPY environment.yml .
-RUN conda update -y conda && \
-    conda env update --file environment.yml --name base
+RUN conda env update --file environment.yml --name base
 
 # clone repo and cd to a directory where the main is:
 COPY clone_repo_and_run_python_scripts.sh .
